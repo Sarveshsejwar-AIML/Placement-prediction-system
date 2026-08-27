@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlacementAI — Chances Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">P</div><div><b>PlacementAI</b><small>Chances Challenge</small></div></div>
+    <nav>
+      <button class="nav active" data-page="dashboard">⌂ <span>Dashboard</span></button>
+      <button class="nav" data-page="profile">👤 <span>Student Profile</span></button>
+      <button class="nav" data-page="prediction">🤖 <span>AI Prediction</span></button>
+      <button class="nav" data-page="challenge">⚡ <span>Chances Challenge</span></button>
+      <button class="nav" data-page="skills">📊 <span>Skill Analyzer</span></button>
+      <button class="nav" data-page="companies">🏢 <span>Company Matcher</span></button>
+      <button class="nav" data-page="resume">📄 <span>Resume Analyzer</span></button>
+      <button class="nav" data-page="interview">🎤 <span>Mock Interview</span></button>
+      <button class="nav" data-page="roadmap">🎯 <span>Roadmap</span></button>
+      <button class="nav" data-page="leaderboard">🏆 <span>Leaderboard</span></button>
+      <button class="nav" data-page="admin">⚙ <span>Admin Analytics</span></button>
+    </nav>
+    <div class="side-bottom">
+      <button id="themeBtn">☾ <span>Toggle theme</span></button>
+      <div class="mini-card"><b>Industry Ready</b><div class="bar"><i style="width:72%"></i></div><small>72% readiness</small></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+      <div><span class="muted">Sunday, 23 Aug 2026</span><h2 id="pageTitle">Placement Dashboard</h2></div>
+      <div class="top-actions"><span class="pill">● System Online</span><div class="avatar">SS</div></div>
+    </header>
+
+    <section id="dashboard" class="page active-page">
+      <div class="hero">
+        <div><span class="eyebrow">AI-POWERED PLACEMENT READINESS</span><h1>Turn your skills into a <span>placement strategy.</span></h1><p>Predict your placement readiness, identify skill gaps and improve your chances with weekly challenges.</p><button class="primary" data-go="prediction">Check My Chances →</button></div>
+        <div class="score-ring"><div><strong id="dashChance">78%</strong><span>Placement<br>Chance</span></div></div>
+      </div>
+      <div class="cards four">
+        <div class="stat"><span>Readiness</span><b>72/100</b><small>↑ 8% this month</small></div>
+        <div class="stat"><span>Expected Package</span><b>₹4–7 LPA</b><small>Target: ₹10 LPA</small></div>
+        <div class="stat"><span>Challenge Streak</span><b>12 days 🔥</b><small>Best: 18 days</small></div>
+        <div class="stat"><span>Profile Strength</span><b>84%</b><small>Excellent</small></div>
+      </div>
+      <div class="grid two">
+        <div class="panel"><div class="panel-head"><h3>Placement Probability</h3><span class="badge green">Good</span></div><canvas id="lineChart" height="180"></canvas></div>
+        <div class="panel"><div class="panel-head"><h3>Skill Snapshot</h3><button class="link" data-go="skills">View all</button></div><div id="skillBars"></div></div>
+      </div>
+      <div class="grid two">
+        <div class="panel"><div class="panel-head"><h3>Today's Challenges</h3><button class="link" data-go="challenge">All challenges</button></div><div class="task">💻 Solve 3 DSA problems <span>+20 XP</span></div><div class="task">🧠 Aptitude: Quantitative <span>+15 XP</span></div><div class="task">🗣️ 2-minute self introduction <span>+10 XP</span></div></div>
+        <div class="panel"><div class="panel-head"><h3>Quick Recommendations</h3></div><div class="recommend">⚠️ <div><b>Improve DSA</b><small>Your DSA score is below your target role average.</small></div></div><div class="recommend">🚀 <div><b>Add one ML project</b><small>Projects can strengthen your AIML profile.</small></div></div></div>
+      </div>
+    </section>
+
+    <section id="profile" class="page">
+      <div class="section-head"><div><span class="eyebrow">PROFILE</span><h1>Student Profile</h1></div><button class="primary" id="saveProfile">Save Profile</button></div>
+      <div class="panel form-panel"><div class="grid three">
+        <label>Name<input id="name" value="Sarvesh Sejwar"></label>
+        <label>Branch<select id="branch"><option>CSE</option><option selected>CSE — AIML</option><option>IT</option><option>ECE</option></select></label>
+        <label>Semester<select id="semester"><option>2nd</option><option>3rd</option><option selected>4th</option><option>5th</option><option>6th</option><option>7th</option><option>8th</option></select></label>
+        <label>CGPA<input id="cgpa" type="number" min="0" max="10" step=".01" value="7.27"></label>
+        <label>10th %<input id="tenth" type="number" value="82"></label>
+        <label>12th %<input id="twelfth" type="number" value="78"></label>
+        <label>Backlogs<input id="backlogs" type="number" value="0"></label>
+        <label>Attendance %<input id="attendance" type="number" value="86"></label>
+        <label>Internship<select id="internship"><option>No</option><option>Yes</option></select></label>
+        <label>Projects<input id="projects" type="number" value="3"></label>
+        <label>Certifications<input id="certs" type="number" value="4"></label>
+        <label>Target Package (LPA)<input id="target" type="number" value="10"></label>
+      </div><h3>Technical Skills</h3><div class="checks">
+        <label><input type="checkbox" checked> Python</label><label><input type="checkbox" checked> C++</label><label><input type="checkbox" checked> SQL</label><label><input type="checkbox" checked> Machine Learning</label><label><input type="checkbox"> Deep Learning</label><label><input type="checkbox" checked> Git/GitHub</label><label><input type="checkbox"> Cloud</label><label><input type="checkbox" checked> DSA</label>
+      </div></div>
+    </section>
+
+    <section id="prediction" class="page">
+      <div class="section-head"><div><span class="eyebrow">MACHINE LEARNING</span><h1>AI Placement Prediction</h1></div><button class="primary" id="runPrediction">Run Prediction</button></div>
+      <div class="prediction-hero panel"><div class="big-score"><strong id="predScore">78%</strong><span>Estimated Placement Probability</span></div><div><span class="badge green">GOOD READINESS</span><h2 id="predMessage">Your profile has a solid placement foundation.</h2><p>This is an estimated probability based on profile, skills and challenge performance—not a placement guarantee.</p></div></div>
+      <div class="cards four"><div class="stat"><span>₹5–8 LPA</span><b id="p5">86%</b><small>High probability</small></div><div class="stat"><span>₹8–10 LPA</span><b id="p8">64%</b><small>Medium probability</small></div><div class="stat"><span>₹10+ LPA</span><b id="p10">38%</b><small>Needs improvement</small></div><div class="stat"><span>Interview Ready</span><b>71%</b><small>Good</small></div></div>
+      <div class="grid two"><div class="panel"><h3>Why this score?</h3><div class="reason">✓ Academics contribute positively</div><div class="reason">✓ 3 projects strengthen your profile</div><div class="reason">⚠ DSA needs improvement</div><div class="reason">⚠ Internship experience would help</div></div><div class="panel"><h3>What-if Simulator</h3><div class="slider"><label>CGPA <output id="cgpaOut">7.27</output></label><input id="cgpaSim" type="range" min="5" max="10" step=".01" value="7.27"></div><div class="slider"><label>DSA <output id="dsaOut">61</output></label><input id="dsaSim" type="range" min="0" max="100" value="61"></div><div class="slider"><label>Projects <output id="projOut">3</output></label><input id="projSim" type="range" min="0" max="8" value="3"></div><div class="whatif">Simulated chance: <strong id="whatIfScore">78%</strong></div></div></div>
+    </section>
+
+    <section id="challenge" class="page"><div class="section-head"><div><span class="eyebrow">DAILY GROWTH</span><h1>Chances Challenge</h1></div><span class="pill">🔥 12 day streak</span></div><div class="challenge-grid">
+      <div class="challenge-card"><span class="icon">💻</span><h3>DSA Sprint</h3><p>Arrays, strings and searching</p><b>3 problems · +20 XP</b><button class="primary challengeBtn">Start Challenge</button></div>
+      <div class="challenge-card"><span class="icon">🧠</span><h3>Aptitude Arena</h3><p>Quantitative aptitude mini test</p><b>10 questions · +15 XP</b><button class="primary challengeBtn">Start Challenge</button></div>
+      <div class="challenge-card"><span class="icon">🤖</span><h3>AIML Quiz</h3><p>ML fundamentals and concepts</p><b>10 questions · +20 XP</b><button class="primary challengeBtn">Start Challenge</button></div>
+      <div class="challenge-card"><span class="icon">🗣️</span><h3>Communication</h3><p>Self-introduction practice</p><b>2 minutes · +10 XP</b><button class="primary challengeBtn">Start Challenge</button></div>
+      </div><div class="panel progress-panel"><h3>Weekly progress</h3><div class="big-progress"><i style="width:72%"></i></div><p>72% complete · 360 / 500 XP</p></div>
+    </section>
+
+    <section id="skills" class="page"><div class="section-head"><div><span class="eyebrow">ANALYTICS</span><h1>Skill Analyzer</h1></div></div><div class="skill-grid" id="skillGrid"></div><div class="panel"><h3>Priority Skill Gaps</h3><div class="gap"><b>DSA</b><div class="bar"><i style="width:61%"></i></div><span>61 → 80 target</span></div><div class="gap"><b>Communication</b><div class="bar"><i style="width:70%"></i></div><span>70 → 85 target</span></div><div class="gap"><b>Machine Learning</b><div class="bar"><i style="width:68%"></i></div><span>68 → 80 target</span></div></div></section>
+
+    <section id="companies" class="page"><div class="section-head"><div><span class="eyebrow">MATCHING ENGINE</span><h1>Company Matcher</h1></div><select class="filter"><option>All roles</option><option>AIML</option><option>Software</option><option>Data</option></select></div><div class="company-grid">
+      <div class="company"><div class="company-logo">TCS</div><h3>Service-based roles</h3><span class="match">92% match</span><p>Strong fit for your current academic and coding profile.</p><small>Typical range: ₹3.5–7 LPA</small></div>
+      <div class="company"><div class="company-logo">INF</div><h3>Software / Data</h3><span class="match">86% match</span><p>Improve DSA and interview readiness for stronger fit.</p><small>Typical range: ₹4–9 LPA</small></div>
+      <div class="company"><div class="company-logo">AI</div><h3>AIML Startup</h3><span class="match">81% match</span><p>Your projects and ML skills are relevant.</p><small>Typical range: ₹5–10 LPA</small></div>
+      <div class="company"><div class="company-logo">PRO</div><h3>Product roles</h3><span class="match">68% match</span><p>Build stronger DSA, CS fundamentals and projects.</p><small>Typical range: ₹8–15 LPA</small></div>
+    </div></section>
+
+    <section id="resume" class="page"><div class="section-head"><div><span class="eyebrow">ATS CHECK</span><h1>Resume Analyzer</h1></div></div><div class="upload panel"><div class="upload-icon">📄</div><h2>Upload your resume</h2><p>PDF/DOCX · ATS-friendly analysis</p><input type="file" id="resumeFile" accept=".pdf,.doc,.docx"><button class="primary" id="analyzeResume">Analyze Resume</button></div><div id="resumeResult" class="panel hidden"></div></section>
+
+    <section id="interview" class="page"><div class="section-head"><div><span class="eyebrow">PRACTICE</span><h1>Mock Interview</h1></div><button class="primary" id="newQuestion">New Question</button></div><div class="panel interview-card"><span class="badge">Technical · AIML</span><h2 id="question">Explain the bias-variance tradeoff in machine learning.</h2><textarea id="answer" placeholder="Type your answer here..."></textarea><button class="primary" id="evaluate">Evaluate Answer</button><div id="eval" class="evaluation hidden"></div></div></section>
+
+    <section id="roadmap" class="page"><div class="section-head"><div><span class="eyebrow">PERSONALIZED PLAN</span><h1>₹10 LPA Roadmap</h1></div><span class="badge green">72% complete</span></div><div class="timeline"><div class="step done"><b>01 · Foundation</b><p>Python, SQL, Git and CS fundamentals</p></div><div class="step done"><b>02 · DSA</b><p>Arrays → Trees → Graphs → 150 problems</p></div><div class="step current"><b>03 · AIML Portfolio</b><p>Build 2 strong ML projects with deployment</p></div><div class="step"><b>04 · Interview</b><p>Mock interviews, resume and communication</p></div><div class="step"><b>05 · Applications</b><p>Company targeting, referrals and applications</p></div></div></section>
+
+    <section id="leaderboard" class="page"><div class="section-head"><div><span class="eyebrow">COMPETE</span><h1>Leaderboard</h1></div></div><div class="panel"><table><thead><tr><th>Rank</th><th>Student</th><th>Readiness</th><th>XP</th><th>Badge</th></tr></thead><tbody><tr><td>1</td><td>Aditya Sharma</td><td>94</td><td>920</td><td>💎 10 LPA Ready</td></tr><tr><td>2</td><td>Neha Verma</td><td>91</td><td>870</td><td>🥇 Industry Ready</td></tr><tr class="me"><td>8</td><td>Sarvesh Sejwar</td><td>72</td><td>360</td><td>🥈 Interview Ready</td></tr><tr><td>9</td><td>Rahul Patel</td><td>70</td><td>340</td><td>🥈 Interview Ready</td></tr></tbody></table></div></section>
+
+    <section id="admin" class="page"><div class="section-head"><div><span class="eyebrow">ADMIN</span><h1>Placement Analytics</h1></div><button class="primary" id="exportData">Export CSV</button></div><div class="cards four"><div class="stat"><span>Total Students</span><b>486</b><small>+32 this semester</small></div><div class="stat"><span>Avg Readiness</span><b>68/100</b><small>↑ 6%</small></div><div class="stat"><span>High Chance</span><b>124</b><small>25.5% students</small></div><div class="stat"><span>Challenge Active</span><b>312</b><small>64.2%</small></div></div><div class="grid two"><div class="panel"><h3>Branch-wise readiness</h3><div class="gap"><b>CSE-AIML</b><div class="bar"><i style="width:78%"></i></div><span>78</span></div><div class="gap"><b>CSE</b><div class="bar"><i style="width:74%"></i></div><span>74</span></div><div class="gap"><b>IT</b><div class="bar"><i style="width:69%"></i></div><span>69</span></div></div><div class="panel"><h3>Placement band distribution</h3><div class="bars"><i style="height:70%"><span>₹3–5</span></i><i style="height:55%"><span>₹5–8</span></i><i style="height:35%"><span>₹8–10</span></i><i style="height:18%"><span>10+</span></i></div></div></div></section>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
